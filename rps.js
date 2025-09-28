@@ -3,18 +3,19 @@
 
 function getComputerChoice () {
 
-    const compchoice = (Math.random());
+    const compChoice = (Math.random());
 
-    if (compchoice < 0.33) {
+    if (compChoice < 0.33) {
     return "rock";
-    } else if (compchoice >= 0.33 && compchoice <0.66) {
+
+    } else if (compChoice >= 0.33 && compChoice <0.66) {
     return "paper";
-    }
-    else if (compchoice > 0.66);
+
+    } else if (compChoice > 0.66);
     return "scissors";
     }
 
-console.log(getComputerChoice());
+// Skip  this test, otherwise it will run twice ------ console.log(getComputerChoice()); ----//
 
 // ------------------------------------------------------//
 
@@ -22,22 +23,83 @@ console.log(getComputerChoice());
 
 function getHumanChoice () {
 
-let humchoice = prompt("Rock, Paper, or Scissors?");
+let humChoice = prompt("Rock, Paper, or Scissors?");
+let humChoiceCs = humChoice.toLowerCase();
 
-  if (humchoice === "Rock") {
+  if (humChoiceCs === "rock") {
     return "rock";
-    } else if (humchoice === "Paper") {
+    } else if (humChoiceCs === "paper") {
     return "paper";
     }
-    else if (humchoice === "Scissors");
+    else if (humChoiceCs === "scissors");
     return "scissors";
 }
 
-console.log(getHumanChoice());
+// Skip  this test, otherwise it will run twice ------console.log(getHumanChoice()); ----//
 
 // ------------------------------------------------------//
 
 // 3. Declare the players' score variables. -------------//
 
+let humanScore = 0;
+let computerScore = 0;
+
+// ------------------------------------------------------//
+
+// 4. Write logic to play a single round. ----------------//
+
+function playRound (humanChoice, computerChoice) {
+
+if      (humanChoice == "rock" && computerChoice == "rock") {
+      console.log ("Rock meets Rock. It's a draw!");
+
+} else if (humanChoice == "rock" && computerChoice == "paper") {
+    console.log ("Paper beats Rock. You lose!");
+    return computerScore++;
+    
+
+} else if (humanChoice == "rock" && computerChoice == "scissors") {
+    console.log ("Rock beats Scissors. You win!");
+    return humanScore++;
+    
+
+} else if (humanChoice == "paper" && computerChoice == "rock") {
+    console.log ("Paper beats Rock. You win!");
+    return humanScore++;
+    
+
+} else if (humanChoice == "paper" && computerChoice == "paper") {
+       console.log ("Paper meets Paper. It's a draw!");
+
+} else if (humanChoice == "paper" && computerChoice == "scissors") {
+     console.log ("Scissors beats Paper. You lose!");
+     return computerScore++;
+
+} else if (humanChoice == "scissors" && computerChoice == "rock") {
+     console.log ("Rock beats Scissors. You lose!");
+     return computerScore++;
+
+} else if (humanChoice == "scissors" && computerChoice == "paper") {
+      console.log ("Scissors beats Paper. You win!");
+    return humanScore++;
+   
+} else if (humanChoice == "scissors" && computerChoice == "scissors"){
+    console.log ("Scissors meet Scissors. It's a draw!");
+}
+
+}
+
+const humanSelection = getHumanChoice();
+
+const computerSelection = getComputerChoice();
+
+playRound (humanSelection, computerSelection);
+
+
+console.log("Your score is " + humanScore);
+console.log("Computer's score is " + computerScore);
+
+
+// 5. Turn it into a game of 5 rounds -------------------------//
 
 
