@@ -1,75 +1,40 @@
+ // Plays a game of five rounds ----------//
 
-// 1. Gets the computer's choice of rock, paper or scissors //
-
-function getComputerChoice () {
-
-    const compChoice = (Math.random());
-
-    if (compChoice < 0.33) {
-    return "rock";
-
-    } else if (compChoice >= 0.33 && compChoice <0.66) {
-    return "paper";
-
-    } else if (compChoice > 0.66);
-    return "scissors";
-    }
-
-// Skip  this test, otherwise it will run twice ------ console.log(getComputerChoice()); ----//
-
-// ------------------------------------------------------//
-
-// 2. Create a function to get the human choice //
-
-function getHumanChoice () {
-
-let humChoice = prompt("Rock, Paper, or Scissors?");
-let humChoiceCs = humChoice.toLowerCase();
-
-  if (humChoiceCs === "rock") {
-    return "rock";
-    } else if (humChoiceCs === "paper") {
-    return "paper";
-    }
-    else if (humChoiceCs === "scissors");
-    return "scissors";
-}
-
-// Skip  this test, otherwise it will run twice ------console.log(getHumanChoice()); ----//
-
-// ------------------------------------------------------//
-
-// 3. Declare the players' score variables. -------------//
+function playGame() { 
 
 let humanScore = 0;
 let computerScore = 0;
 
-// ------------------------------------------------------//
+    for (i=1;i<=5;i++) {
 
-// 4. Write logic to play a single round. ----------------//
+const human = getHumanChoice();
+const computer = getComputerChoice();
 
+        playRound (human, computer);
+    }
+
+// Play a single round. ----------------//
 function playRound (humanChoice, computerChoice) {
 
 if      (humanChoice == "rock" && computerChoice == "rock") {
       console.log ("Rock meets Rock. It's a draw!");
+      return;
 
 } else if (humanChoice == "rock" && computerChoice == "paper") {
     console.log ("Paper beats Rock. You lose!");
     return computerScore++;
     
-
 } else if (humanChoice == "rock" && computerChoice == "scissors") {
     console.log ("Rock beats Scissors. You win!");
     return humanScore++;
     
-
 } else if (humanChoice == "paper" && computerChoice == "rock") {
     console.log ("Paper beats Rock. You win!");
     return humanScore++;
     
-
 } else if (humanChoice == "paper" && computerChoice == "paper") {
        console.log ("Paper meets Paper. It's a draw!");
+       return;
 
 } else if (humanChoice == "paper" && computerChoice == "scissors") {
      console.log ("Scissors beats Paper. You lose!");
@@ -85,21 +50,69 @@ if      (humanChoice == "rock" && computerChoice == "rock") {
    
 } else if (humanChoice == "scissors" && computerChoice == "scissors"){
     console.log ("Scissors meet Scissors. It's a draw!");
+    return;
+}
+
+}   
+// end of the playRound function ------- //
+
+// Get's the human's choice between the three options: rock, paper, scissors //
+function getHumanChoice () {
+
+let humChoice = prompt("Rock, Paper, or Scissors?");
+let humChoiceCs = humChoice.toLowerCase();
+
+  if (humChoiceCs === "rock") {
+    return "rock";
+    } else if (humChoiceCs === "paper") {
+    return "paper";
+    }
+    else if (humChoiceCs === "scissors");
+    return "scissors";
+}
+
+
+// Gets the computer's choice between the three options: rock, paper, scissors //
+
+function getComputerChoice () {
+
+    const compChoice = (Math.random());
+
+    if (compChoice < 0.33) {
+    return "rock";
+
+    } else if (compChoice >= 0.33 && compChoice <0.66) {
+    return "paper";
+
+    } else if (compChoice > 0.66) {
+    return "scissors";
+    }
+}
+
+
+// Announces the winner of the game ------//
+
+console.log ("Your final score is  " + humanScore);
+console.log ("Computer's final score is " + computerScore);
+
+if (humanScore > computerScore) {
+console.log("Human wins the game!");
+}
+
+else  if (computerScore > humanScore) {
+console.log("Computer wins the game!");
+}
+
+else {
+    console.log("The game is a draw!");
 }
 
 }
-
-const humanSelection = getHumanChoice();
-
-const computerSelection = getComputerChoice();
-
-playRound (humanSelection, computerSelection);
+// end of the playGame function -------- //
 
 
-console.log("Your score is " + humanScore);
-console.log("Computer's score is " + computerScore);
+// Triggers the start of the game. ------//
+playGame ();
 
-
-// 5. Turn it into a game of 5 rounds -------------------------//
 
 
