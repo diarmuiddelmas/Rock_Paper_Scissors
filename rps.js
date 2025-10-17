@@ -21,6 +21,12 @@ choiceDiv.appendChild(scissorsButton);
 let humanScore = 0;
 let computerScore = 0;
 
+const humScoreDiv = document.createElement("div");
+document.body.appendChild(humScoreDiv);
+
+const comScoreDiv = document.createElement("div");
+document.body.appendChild(comScoreDiv);
+
 // Create an event listener that triggers playRound function depending on what button is pressed ---
 
 choiceDiv.addEventListener("click",(event) => {
@@ -32,6 +38,9 @@ choiceDiv.addEventListener("click",(event) => {
        const computer = getComputerChoice();
 
         playRound (human, computer);
+
+humScoreDiv.textContent = `Your score is ${humanScore}`;
+comScoreDiv.textContent = `Computer's score is ${computerScore}`;
 
 });
  
@@ -99,9 +108,14 @@ if      (humanChoice == "rock" && computerChoice == "rock") {
      resultsDiv.textContent = "Scissors meet Scissors. It's a draw!";
     // console.log ("Scissors meet Scissors. It's a draw!");
     return;
+
 }
 
+
 }   
+
+
+
 // end of the playRound function ------- //
 
 // Get's the human's choice between the three options: rock, paper, scissors //
@@ -136,6 +150,8 @@ function getComputerChoice () {
     return "scissors";
     }
 }
+
+
 
 // Announces the winner of the game ------//
 
