@@ -1,17 +1,54 @@
- // Plays a game of five rounds ----------//
+// Create a div with rock, paper, scissors buttons --------//
 
-function playGame() { 
+const choiceDiv = document.createElement("div");
+document.body.appendChild(choiceDiv);
+
+const rockButton = document.createElement("button");
+rockButton.setAttribute("id","rock");
+rockButton.textContent = "Rock";
+choiceDiv.appendChild(rockButton);
+
+const paperButton = document.createElement("button");
+paperButton.setAttribute("id","paper");
+paperButton.textContent = "Paper";
+choiceDiv.appendChild(paperButton);
+
+const scissorsButton = document.createElement("button");
+scissorsButton.setAttribute("id","scissors");
+scissorsButton.textContent = "Scissors";
+choiceDiv.appendChild(scissorsButton); 
 
 let humanScore = 0;
 let computerScore = 0;
 
-    for (i=1;i<=5;i++) {
+// Create an event listener that triggers playRound function depending on what button is pressed ---
 
-const human = getHumanChoice();
-const computer = getComputerChoice();
+choiceDiv.addEventListener("click",(event) => {
+
+       const btn = event.target.closest("button");
+       if (!btn) return;
+
+       const human = btn.id;
+       const computer = getComputerChoice();
 
         playRound (human, computer);
-    }
+
+
+});
+ 
+ // Plays a game of five rounds ----------//
+
+// function playGame() { 
+
+
+
+    // for (i=1;i<=1;i++) {
+
+// const human = getHumanChoice();
+// const computer = getComputerChoice();
+
+        // playRound (human, computer);
+    // }
 
 // Play a single round. ----------------//
 function playRound (humanChoice, computerChoice) {
@@ -57,19 +94,19 @@ if      (humanChoice == "rock" && computerChoice == "rock") {
 // end of the playRound function ------- //
 
 // Get's the human's choice between the three options: rock, paper, scissors //
-function getHumanChoice () {
+// function getHumanChoice () {
 
-let humChoice = prompt("Rock, Paper, or Scissors?");
-let humChoiceCs = humChoice.toLowerCase();
+// let humChoice = prompt("Rock, Paper, or Scissors?");
+// let humChoiceCs = humChoice.toLowerCase();
 
-  if (humChoiceCs === "rock") {
-    return "rock";
-    } else if (humChoiceCs === "paper") {
-    return "paper";
-    }
-    else if (humChoiceCs === "scissors");
-    return "scissors";
-}
+//   if (humChoice === "rock") {
+    // return "rock";
+    // } else if (humChoice === "paper") {
+    // return "paper";
+    // }
+    // else if (humChoice === "scissors");
+    // return "scissors";
+// }
 
 
 // Gets the computer's choice between the three options: rock, paper, scissors //
@@ -92,27 +129,27 @@ function getComputerChoice () {
 
 // Announces the winner of the game ------//
 
-console.log ("Your final score is  " + humanScore);
-console.log ("Computer's final score is " + computerScore);
+// console.log ("Your final score is  " + humanScore);
+// console.log ("Computer's final score is " + computerScore);
 
-if (humanScore > computerScore) {
-console.log("Human wins the game!");
-}
+// if (humanScore > computerScore) {
+// console.log("Human wins the game!");
+// }
 
-else  if (computerScore > humanScore) {
-console.log("Computer wins the game!");
-}
+// else  if (computerScore > humanScore) {
+// console.log("Computer wins the game!");
+// }
 
-else {
-    console.log("The game is a draw!");
-}
+// else {
+    // console.log("The game is a draw!");
+// }
 
-}
+// }
 // end of the playGame function -------- //
 
 
 // Triggers the start of the game. ------//
-playGame ();
+// playGame ();
 
 
 
