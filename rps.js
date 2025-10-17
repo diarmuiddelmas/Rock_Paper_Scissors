@@ -62,6 +62,8 @@ else {
 
 });
  
+
+
  // Plays a game of five rounds ----------//
 
 // function playGame() { 
@@ -131,9 +133,9 @@ if      (humanChoice == "rock" && computerChoice == "rock") {
 
 }   
 
-
-
 // end of the playRound function ------- //
+
+
 
 // Get's the human's choice between the three options: rock, paper, scissors //
 // function getHumanChoice () {
