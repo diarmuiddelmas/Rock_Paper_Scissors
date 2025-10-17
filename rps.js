@@ -18,14 +18,20 @@ scissorsButton.setAttribute("id","scissors");
 scissorsButton.textContent = "Scissors";
 choiceDiv.appendChild(scissorsButton); 
 
-let humanScore = 0;
-let computerScore = 0;
+const resultsDiv = document.createElement("div");
+document.body.appendChild(resultsDiv);
 
 const humScoreDiv = document.createElement("div");
 document.body.appendChild(humScoreDiv);
 
 const comScoreDiv = document.createElement("div");
 document.body.appendChild(comScoreDiv);
+
+const announceDiv = document.createElement("div");
+document.body.appendChild(announceDiv);
+
+let humanScore = 0;
+let computerScore = 0;
 
 // Create an event listener that triggers playRound function depending on what button is pressed ---
 
@@ -41,6 +47,18 @@ choiceDiv.addEventListener("click",(event) => {
 
 humScoreDiv.textContent = `Your score is ${humanScore}`;
 comScoreDiv.textContent = `Computer's score is ${computerScore}`;
+
+if (humanScore === 5) {
+announceDiv.textContent = "You have won the game!";
+}
+
+else  if (computerScore === 5) {
+announceDiv.textContent = "Computer has won the game!";
+}
+
+else {
+    // do nothing
+}
 
 });
  
@@ -58,8 +76,7 @@ comScoreDiv.textContent = `Computer's score is ${computerScore}`;
         // playRound (human, computer);
     // }
 
-const resultsDiv = document.createElement("div");
-document.body.appendChild(resultsDiv);
+
 
 // Play a single round. ----------------//
 function playRound (humanChoice, computerChoice) {
