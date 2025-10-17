@@ -33,7 +33,6 @@ choiceDiv.addEventListener("click",(event) => {
 
         playRound (human, computer);
 
-
 });
  
  // Plays a game of five rounds ----------//
@@ -50,43 +49,55 @@ choiceDiv.addEventListener("click",(event) => {
         // playRound (human, computer);
     // }
 
+const resultsDiv = document.createElement("div");
+document.body.appendChild(resultsDiv);
+
 // Play a single round. ----------------//
 function playRound (humanChoice, computerChoice) {
 
 if      (humanChoice == "rock" && computerChoice == "rock") {
-      console.log ("Rock meets Rock. It's a draw!");
+    resultsDiv.textContent = "Rock meets Rock. It's a draw!";
+    //   console.log ("Rock meets Rock. It's a draw!");
       return;
 
 } else if (humanChoice == "rock" && computerChoice == "paper") {
-    console.log ("Paper beats Rock. You lose!");
+    resultsDiv.textContent = "Paper beats Rock. You lose!";
+    // console.log ("Paper beats Rock. You lose!");
     return computerScore++;
     
 } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    console.log ("Rock beats Scissors. You win!");
+    resultsDiv.textContent = "Rock beats Scissors. You win!";
+    // console.log ("Rock beats Scissors. You win!");
     return humanScore++;
     
 } else if (humanChoice == "paper" && computerChoice == "rock") {
-    console.log ("Paper beats Rock. You win!");
+    resultsDiv.textContent = "Paper beats Rock. You win!";
+    // console.log ("Paper beats Rock. You win!");
     return humanScore++;
     
 } else if (humanChoice == "paper" && computerChoice == "paper") {
-       console.log ("Paper meets Paper. It's a draw!");
+    resultsDiv.textContent = "Paper meets Paper. It's a draw!";
+    //    console.log ("Paper meets Paper. It's a draw!");
        return;
 
 } else if (humanChoice == "paper" && computerChoice == "scissors") {
-     console.log ("Scissors beats Paper. You lose!");
+    resultsDiv.textContent = "Scissors beats Paper. You lose!";
+    //  console.log ("Scissors beats Paper. You lose!");
      return computerScore++;
 
 } else if (humanChoice == "scissors" && computerChoice == "rock") {
-     console.log ("Rock beats Scissors. You lose!");
+      resultsDiv.textContent = "Rock beats Scissors. You lose!";
+    //  console.log ("Rock beats Scissors. You lose!");
      return computerScore++;
 
 } else if (humanChoice == "scissors" && computerChoice == "paper") {
-      console.log ("Scissors beats Paper. You win!");
+    resultsDiv.textContent = "Scissors beats Paper. You win!";
+    //   console.log ("Scissors beats Paper. You win!");
     return humanScore++;
    
 } else if (humanChoice == "scissors" && computerChoice == "scissors"){
-    console.log ("Scissors meet Scissors. It's a draw!");
+     resultsDiv.textContent = "Scissors meet Scissors. It's a draw!";
+    // console.log ("Scissors meet Scissors. It's a draw!");
     return;
 }
 
@@ -125,7 +136,6 @@ function getComputerChoice () {
     return "scissors";
     }
 }
-
 
 // Announces the winner of the game ------//
 
